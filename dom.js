@@ -1,4 +1,10 @@
-//是否有class
+/**
+ * 是否有class
+ * @method hasClass
+ * @param  {[type]}  el        获取的元素
+ * @param  {[type]}  className class名
+ * @return {Boolean}           是否有class名
+ */
 export function hasClass(el, className) {
   let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
   return reg.test(el.className)
@@ -63,6 +69,6 @@ export function prefixStyle(style) {
 }
 
 export function px(){
-  
+
   console.log(window.devicePixelRatio)
 }
