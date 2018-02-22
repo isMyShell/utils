@@ -1,3 +1,15 @@
+//获取元素样式计算后的值
+export function getStyle(element, attr) {
+    return element.currentStyle 
+      ? element.currentStyle[attr] 
+      : window.getComputedStyle(element, null)[attr];
+}
+
+//通过id 获取元素
+export function getEleId(id) {
+  return document.getElementById(id)
+}
+
 /**
  * 是否有class
  * @method hasClass
@@ -10,18 +22,15 @@ export function hasClass(el, className) {
   return reg.test(el.className)
 }
 
-
 //添加class
 export function addClass(el, className) {
   if (hasClass(el, className)) {
     return
   }
-
   let newClass = el.className.split(' ')
   newClass.push(className)
   el.className = newClass.join(' ')
 }
-
 
 //获取或者添加data-自定义属性
 //string = element.dataset.camelCasedName;
@@ -33,7 +42,6 @@ export function getData(el, name, val) {
   }
   return el.getAttribute(prefix + name)
 }
-
 
 //js中 transform 浏览器兼容的写法
 let elementStyle = document.createElement('div').style
@@ -68,7 +76,7 @@ export function prefixStyle(style) {
   return vendor + style.charAt(0).toUpperCase() + style.substr(1)
 }
 
+//获取dpr
 export function px(){
-
   console.log(window.devicePixelRatio)
 }
